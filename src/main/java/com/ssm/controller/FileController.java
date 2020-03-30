@@ -53,6 +53,7 @@ public class FileController {
 	public Object selectMenuTrees(HttpServletRequest request, HttpServletResponse response){
 
 		System.out.println("LLLKKK");
+		System.out.println("LLLKKK");
 		//用于接收数据库查询到的数据
 		List<com.ssm.entity.File> list = new ArrayList<com.ssm.entity.File>();
 		//用于把接收到的数据改造成EasyUI tree认识的数据格式
