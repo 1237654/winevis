@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.FileMapperDao">
+
+
+    <select id="getFileById" resultType="com.ssm.entity.File" parameterType="int">
+        SELECT Id, Name, IsDir,ParentId,Location
+        FROM t_file
+        WHERE Id = #{id}
+    </select>
+
+
+
+    <select id="getAllFiles" resultType="com.ssm.entity.File">
+        SELECT Id, Name, IsDir,ParentId,Location
+        FROM t_file
+    </select>
+
+
+    <select id="getChildrenByFileId" resultType="java.lang.Integer" parameterType="int">
+        SELECT Id
+        FROM t_file
+        where ParentId = #{id}
+    </select>
+
+
+
+    <select id="getParentIds" resultType="java.lang.Integer">
+        SELECT DISTINCT (ParentId)
+        FROM t_file
+        where ParentId >= 1
+    </select>
+
+</mapper>
