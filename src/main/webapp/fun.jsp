@@ -175,20 +175,6 @@
 
 </script>
 
-<script type="text/javascript">
-    $(function(){
-        $('#home-tree').tree({
-
-            url : 'http://localhost:8080/WineVis/file/selectMenuTrees',
-            onLoadSuccess: function(node, data){
-            },
-
-        });
-    });
-</script>
-
-<ul id='home-tree' ></ul>
-
 
 <canvas id="canvas"></canvas>
 
