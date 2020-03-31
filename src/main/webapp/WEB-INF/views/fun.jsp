@@ -13,6 +13,14 @@
 	<link href="../../resource/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="../../resource/bootstrap/bootstrap.min.js"></script>
 
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../../third-lib/easyui/themes">
+	<link rel="stylesheet" type="text/css" href="../../third-lib/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../third-lib/easyui/themes/icon.css">
+	<script type="text/javascript" src="../../third-lib/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../third-lib/easyui/jquery.easyui.min.js"></script>
+
 </head>
 
 <body>
@@ -153,6 +161,21 @@
 
 </script>
 
+<script type="text/javascript">
+    $(function(){
+        $('#home-tree').tree({
+
+            url : 'http://localhost:8080/WineVis/file/selectMenuTrees',
+            onLoadSuccess: function(node, data){
+            },
+
+
+
+        });
+    });
+</script>
+
+<ul id='home-tree'></ul>
 
 <canvas id="canvas"></canvas>
 

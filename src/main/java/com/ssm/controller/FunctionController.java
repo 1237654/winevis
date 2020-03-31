@@ -53,6 +53,7 @@ public class FunctionController {
 	@ResponseBody
 	public void getFunctionsOfFile(@PathVariable(value = "fileId",required = true) Integer fileId,HttpServletResponse response) throws Exception
 	{
+		System.out.println("1");
 		System.out.println("getFunctionsOfFile");
 		System.out.println(fileId);
 		response.reset();

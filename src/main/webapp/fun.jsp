@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-	<title>函数与类间关系</title>
+
 	<%@ include file="/include/jquery.libs.jsp"%>
 	<script type="text/javascript" src="./resource/js/jtopo-0.4.6-min.js"></script>
 	<script type="text/javascript" src="./resource/js/addtabs.js"></script>
@@ -13,13 +13,20 @@
 	<link href="./resource/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="./resource/bootstrap/bootstrap.min.js"></script>
 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes">
+	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/icon.css">
+	<script type="text/javascript" src="./third-lib/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="./third-lib/easyui/jquery.easyui.min.js"></script>
+
 
 
 </head>
 
 <body>
 
-<div>call</div>
+
 
 <script type="text/javascript">
 
@@ -167,6 +174,20 @@
 
 
 </script>
+
+<script type="text/javascript">
+    $(function(){
+        $('#home-tree').tree({
+
+            url : 'http://localhost:8080/WineVis/file/selectMenuTrees',
+            onLoadSuccess: function(node, data){
+            },
+
+        });
+    });
+</script>
+
+<ul id='home-tree' ></ul>
 
 
 <canvas id="canvas"></canvas>
