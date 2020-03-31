@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="WineVis:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="WineVis.war">
-      <element id="artifact" artifact-name="WineVis:war exploded" />
-    </root>
-  </artifact>
-</component>
