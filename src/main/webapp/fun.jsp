@@ -71,9 +71,10 @@
     }
 
 
+    var fileId = ${param.fileId};
     $.ajax({
         type:'GET',
-        url:'http://localhost:8080/WineVis/function/getFileFunction/30',
+        url:'http://localhost:8080/WineVis/function/getFileFunction/'+fileId,
         //async:false,
         dataType:"json",
         beforeSend:function(XMLHttpRequest){
@@ -106,7 +107,7 @@
             var pNum = pLayout.length-1;
 
             var nodes = new Array();
-            var nodeImgF = '${ctx}/resource/images/function.png';
+            var nodeImgF = './resource/images/function.png';
 
             for (i = 0; i < arr_n.length; i++)
 			{

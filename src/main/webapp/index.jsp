@@ -50,16 +50,45 @@
             url : 'http://localhost:8080/WineVis/file/selectMenuTrees',
             onLoadSuccess: function(node, data){
             },
+			onClick:function(node){
+            	if( $('#home-tree').tree('isLeaf', node.target)){
+					//alert(node.text);
+					addTab(node.text, 'fun.jsp?fileId='+node.id);
+				}
 
-
+			}
 
         });
-    });
+
+		function addTab(title, url){
+			if ($('#tree-tabs').tabs('exists', title)){
+				$('#tree-tabs').tabs('select', title);
+			} else {
+				var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+				$('#tree-tabs').tabs('add',{
+					title:title,
+					content:content,
+					closable:true
+				});
+			}
+		}
+
+	});
+
+
 
 </script>
 
 </head>
-<body>
-<ul id='home-tree'></ul>
+<body class="easyui-layout">
+<!-- 左边树形布局 -->
+<div data-options="region:'west',title:'Tree',split:true,collapsible:false" style="width:150px;padding:10px">
+	<ul id='home-tree'></ul>
+</div>
+<!-- 右边显示内容 -->
+<div data-options="region:'center',title:'CallGraph'" style="padding:5px">
+	<div id="tree-tabs" class="easyui-tabs" fit="true" border="false"></div>
+</div>
+
 </body>
 </html>
