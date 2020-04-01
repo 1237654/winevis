@@ -10,4 +10,6 @@ public interface TestcaseService {
 
 	public Testcase getTestcaseById(int id);
 
+	public List<Testcase> getTestcaseByFileId(int id);
+
 }

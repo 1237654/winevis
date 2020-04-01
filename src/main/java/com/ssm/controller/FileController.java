@@ -69,6 +69,13 @@ public class FileController {
 			}
 			for (com.ssm.entity.File f : list){
 				FileNode fileNode = fileToFileNode(f);
+				if(f.getParentId()>-1){
+					String name = fileService.getFileById(f.getParentId()).getName();
+					if(name.equals("tests")){
+						fileNode.setUrl(null);
+					}
+				}
+
 				menuTrees.add(fileNode);
 			}
 

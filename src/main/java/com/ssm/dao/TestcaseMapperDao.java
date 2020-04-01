@@ -12,4 +12,6 @@ public interface TestcaseMapperDao {
 
 	public Testcase getTestcaseById(int id);
 
+	public List<Testcase> getTestcaseByFileId(int id);
+
 }

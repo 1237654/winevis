@@ -21,4 +21,8 @@ public class TestcaseServiceImpl implements TestcaseService {
 	public Testcase getTestcaseById(int id){
 		return testcaseMapperDao.getTestcaseById(id);
 	}
+
+	public List<Testcase> getTestcaseByFileId(int id){
+		return testcaseMapperDao.getTestcaseByFileId(id);
+	}
 }

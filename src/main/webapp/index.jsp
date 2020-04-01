@@ -52,7 +52,10 @@
             },
 			onClick:function(node){
             	if( $('#home-tree').tree('isLeaf', node.target)){
-					//alert(node.text);
+					//alert(node.url);
+					if(node.url==null){
+						addTab(node.text,'testcase.jsp?fileId='+node.id);
+					}
 					addTab(node.text, 'fun.jsp?fileId='+node.id);
 				}
 
@@ -73,6 +76,8 @@
 			}
 		}
 
+		$('#tree-tabs').tabs('select','home');
+
 	});
 
 
@@ -87,7 +92,10 @@
 </div>
 <!-- 右边显示内容 -->
 <div data-options="region:'center',title:'CallGraph'" style="padding:5px">
-	<div id="tree-tabs" class="easyui-tabs" fit="true" border="false"></div>
+	<div id="tree-tabs" class="easyui-tabs" fit="true" border="false">
+		<div title="home" closable="true">welcome</div>
+
+	</div>
 </div>
 
 </body>

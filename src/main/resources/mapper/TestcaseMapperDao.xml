@@ -17,4 +17,10 @@
         WHERE id = #{id}
     </select>
 
+    <select id="getTestcaseByFileId" resultType="com.ssm.entity.Testcase" parameterType="int">
+        SELECT *
+        FROM t_testcase
+        WHERE FileId = #{id}
+    </select>
+
 </mapper>
