@@ -1,24 +1,28 @@
+<%--
+  User: zhangjie
+  Date: 2020/4/2
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 
-	<%@ include file="/include/jquery.libs.jsp"%>
-	<script type="text/javascript" src="./resource/js/jtopo-0.4.6-min.js"></script>
-	<script type="text/javascript" src="./resource/js/addtabs.js"></script>
-	<link rel="stylesheet" href="./resource/css/main.css">
+    <%@ include file="/include/jquery.libs.jsp"%>
+    <script type="text/javascript" src="./resource/js/jtopo-0.4.6-min.js"></script>
+    <script type="text/javascript" src="./resource/js/addtabs.js"></script>
+    <link rel="stylesheet" href="./resource/css/main.css">
 
-	<link href="./resource/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<script src="./resource/bootstrap/bootstrap.min.js"></script>
+    <link href="./resource/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="./resource/bootstrap/bootstrap.min.js"></script>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes">
-	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/icon.css">
-	<script type="text/javascript" src="./third-lib/easyui/jquery.min.js"></script>
-	<script type="text/javascript" src="./third-lib/easyui/jquery.easyui.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes">
+    <link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="./third-lib/easyui/themes/icon.css">
+    <script type="text/javascript" src="./third-lib/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="./third-lib/easyui/jquery.easyui.min.js"></script>
 
 
 
@@ -78,10 +82,10 @@
     }
 
 
-    var fileId = ${param.fileId};
+    var funId = ${param.funId};
     $.ajax({
         type:'GET',
-        url:'http://localhost:8080/WineVis/function/getFileFunction/'+fileId,
+        url:'http://localhost:8080/WineVis/call/getCallRelationsByFunId/'+funId,
         //async:false,
         dataType:"json",
         beforeSend:function(XMLHttpRequest){
@@ -96,9 +100,8 @@
             var canvas = document.getElementById('canvas');
             var stage = new JTopo.Stage(canvas); // 创建一个舞台对象
             var scene = new JTopo.Scene(stage); // 创建一个场景对
-            var arr_n = data.GC;
-            var arr_l = data.LINK;
-            console.log("lklklk"+arr_l.length);
+            var arr_n = data.FUN;
+            var arr_l = data.REL;
 
             var num = Math.ceil(Math.sqrt(arr_n.length));
             var zoom = 1;
@@ -117,7 +120,7 @@
             var nodeImgF = './resource/images/function.png';
 
             for (i = 0; i < arr_n.length; i++)
-			{
+            {
                 var node = new JTopo.Node(arr_n[i].label);
                 node.id = arr_n[i].id;
                 node.setImage(nodeImgF, true);
@@ -129,14 +132,14 @@
                 node.font="14px 黑体";
                 node.fontColor="20,20,20";
                 node.textOffsetY = -5;
-				node.click(function(event){
-					//alert(this.id);
-					window.location.href="funCall.jsp?funId="+this.id;
-				});
+                node.click(function(event){
+                    //alert(this.id);
+                    window.location.href="funCall.jsp?funId="+this.id;
+                });
 
                 scene.add(node);
                 nodes[i]={id:arr_n[i].id,node:node};
-			}
+            }
 
             for (m = 0; m < arr_l.length; m++){
 
@@ -159,7 +162,7 @@
             }
 
             function addLink(source,target)
-			{
+            {
                 var link = new JTopo.Link(source, target,'','level');
 
                 link.strokeColor = "120,165,65";

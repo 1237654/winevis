@@ -17,4 +17,10 @@ public class CallServiceImpl implements CallService {
 	public List<Call> getCallRelationsByCalleeId(int id) {
 		return callMapperDao.getCallRelationsByCalleeId(id);
 	}
+
+	public List<Call> getCallRelationsByCallerId(int id) {
+		return callMapperDao.getCallRelationsByCallerId(id);
+	}
+
+
 }

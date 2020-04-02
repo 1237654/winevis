@@ -11,5 +11,11 @@
         WHERE CalleeId = #{id}
     </select>
 
+    <select id="getCallRelationsByCallerId" resultType="com.ssm.entity.Call" parameterType="int">
+        SELECT *
+        FROM t_call
+        WHERE CallerId = #{id}
+    </select>
+
 
 </mapper>

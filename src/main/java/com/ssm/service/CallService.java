@@ -7,4 +7,6 @@ import java.util.List;
 public interface CallService {
 
 	public List<Call> getCallRelationsByCalleeId(int id);
+
+	public List<Call> getCallRelationsByCallerId(int id);
 }

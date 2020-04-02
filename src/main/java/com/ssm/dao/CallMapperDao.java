@@ -10,4 +10,6 @@ public interface CallMapperDao {
 
 	public List<Call> getCallRelationsByCalleeId(int id);
 
+	public List<Call> getCallRelationsByCallerId(int id);
+
 }
