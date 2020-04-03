@@ -58,6 +58,7 @@ public class TestcaseController {
 			jj.put("name",tc.getTFunction());
 			jj.put("lineNum",tc.getLineNum());
 			jj.put("location",tc.getLocation());
+			jj.put("result",tc.getTestRes());
 			testcase_arr.add(jj);
 		}
 		obj.put("TC",testcase_arr);

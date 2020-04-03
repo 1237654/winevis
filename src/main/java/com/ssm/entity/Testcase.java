@@ -8,6 +8,7 @@ public class Testcase {
 	int fileId;
 	int lineNum;
 	String Location;
+	String TestRes;
 
 
 	public int getId() {
@@ -56,5 +57,13 @@ public class Testcase {
 
 	public void setLocation(String location) {
 		Location = location;
+	}
+
+	public String getTestRes() {
+		return TestRes;
+	}
+
+	public void setTestRes(String testRes) {
+		TestRes = testRes;
 	}
 }

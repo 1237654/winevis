@@ -53,7 +53,11 @@
             var str = "";
             for (i = 0; i < array.length; i++)
             {
-                str = "<tr><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td></tr>";
+                if(array[i].result=="fail"){
+                    str = "<tr style=\"background-color:#FF0000\"><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td></tr>";
+                }else{
+                    str = "<tr><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td></tr>";
+                }
                 $("#testcase-table").append(str);
             }
 
@@ -65,12 +69,13 @@
 </script>
 
 
-<table id="testcase-table">
+<table id="testcase-table" cellspacing="0" cellpadding="3" width="60%" align="center" border="0">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>LineNum</th>
         <th>Location</th>
+        <th>Result</th>
     </tr>
 </table>
 
