@@ -54,10 +54,11 @@
             for (i = 0; i < array.length; i++)
             {
                 if(array[i].result=="fail"){
-                    str = "<tr style=\"background-color:#FF0000\"><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td></tr>";
+                    str = "<tr style=\"background-color:#FF0000\"><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td>";
                 }else{
-                    str = "<tr><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td></tr>";
+                    str = "<tr><td>" + array[i].id + "</td><td>" + array[i].name+ "</td><td>" + array[i].lineNum+ "</td><td>" + array[i].location+ "</td><td>" + array[i].result+ "</td>";
                 }
+                str = str + "<td><a href='trace.jsp'>trace</a></td></tr>";
                 $("#testcase-table").append(str);
             }
 
@@ -76,6 +77,7 @@
         <th>LineNum</th>
         <th>Location</th>
         <th>Result</th>
+        <th>Trace</th>
     </tr>
 </table>
 
