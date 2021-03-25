@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.TraceMapperDao">
+
+
+    <select id="getTraceById" resultType="com.ssm.entity.Trace" parameterType="int">
+        SELECT Id,TPointId,FunName,ParentId,ProcessId,ThreadId,Apartment,Channel,Layer,Parameters,Detail
+        FROM t_trace
+        WHERE Id = #{id}
+    </select>
+
+
+
+    <select id="getAllTraces" resultType="com.ssm.entity.Trace">
+        SELECT Id,TPointId,FunName,ParentId,ProcessId,ThreadId,Apartment,Channel,Layer,Parameters,Detail
+        FROM t_trace
+    </select>
+
+
+    <select id="getChildrenByTraceId" resultType="java.lang.Integer" parameterType="int">
+        SELECT Id
+        FROM t_trace
+        where ParentId = #{id}
+    </select>
+
+
+
+    <select id="getParentIds" resultType="java.lang.Integer">
+        SELECT DISTINCT (ParentId)
+        FROM t_trace
+        where ParentId >= 1
+    </select>
+
+</mapper>
